@@ -50,7 +50,7 @@ export default function Products() {
   const [updateForm] = Form.useForm();
   const [searchTerm, setSearchTerm] = React.useState("");
 
-  const onChangFilter = useCallback((e: any) => {
+  const onChangeFilter = useCallback((e: any) => {
     setFilter((prevState: any) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -186,37 +186,6 @@ export default function Products() {
       dataIndex: "description",
       key: "description",
     },
-    // {
-    //   title: "",
-    //   dataIndex: "actions",
-    //   key: "actions",
-    //   width: "1%",
-    //   render: (text, record, index) => {
-    //     return (
-    //       <Space>
-    //         <Button
-    //           icon={<EditOutlined />}
-    //           onClick={() => {
-    //             setOpen(true);
-    //             setUpdateId(record.id);
-    //             updateForm.setFieldsValue(record);
-    //           }}
-    //         />
-    //         <Button
-    //           danger
-    //           icon={<DeleteOutlined />}
-    //           onClick={() => {
-    //             console.log(record.id);
-    //             axios.delete(apiName + "/" + record.id).then((response) => {
-    //               setRefresh((f) => f + 1);
-    //               message.success("Xóa danh mục thành công!", 1.5);
-    //             });
-    //           }}
-    //         />
-    //       </Space>
-    //     );
-    //   },
-    // },
     {
       width: "1%",
       render: (text, record, index) => {
@@ -336,7 +305,7 @@ export default function Products() {
           className={Styles.select}
           id="cars"
           name="category"
-          onChange={onChangFilter}
+          onChange={onChangeFilter}
         >
           {categories.map((item: { _id: string; name: string }) => {
             return (
@@ -350,7 +319,7 @@ export default function Products() {
           className={Styles.select}
           id="cars"
           name="supplier"
-          onChange={onChangFilter}
+          onChange={onChangeFilter}
         >
           {suppliers.map((item: { _id: string; name: string }) => {
             return (
@@ -360,12 +329,11 @@ export default function Products() {
             );
           })}
         </select>
-        <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
         <Input
           placeholder="Tìm kiếm sản phẩm"
           name="productName"
           value={filter.productName}
-          onChange={onChangFilter}
+          onChange={onChangeFilter}
               
           allowClear
         />
@@ -373,7 +341,7 @@ export default function Products() {
           placeholder="Tồn kho thấp nhất"
           name="stockStart"
           value={filter.stockStart}
-          onChange={onChangFilter}
+          onChange={onChangeFilter}
               
           allowClear
         />
@@ -381,7 +349,7 @@ export default function Products() {
           placeholder="Tồn kho cao nhất"
           name="stockEnd"
           value={filter.stockEnd}
-          onChange={onChangFilter}
+          onChange={onChangeFilter}
               
           allowClear
         />
@@ -389,7 +357,7 @@ export default function Products() {
           placeholder="Giá thấp nhất"
           name="priceStart"
           value={filter.priceStart}
-          onChange={onChangFilter}
+          onChange={onChangeFilter}
               
           allowClear
         />
@@ -397,7 +365,7 @@ export default function Products() {
           placeholder="Giá cao nhất"
           name="priceEnd"
           value={filter.priceEnd}
-          onChange={onChangFilter}
+          onChange={onChangeFilter}
               
           allowClear
         />
@@ -405,7 +373,7 @@ export default function Products() {
           placeholder="Giảm giá thấp nhất"
           name="discountStart"
           value={filter.discountStart}
-          onChange={onChangFilter}
+          onChange={onChangeFilter}
               
           allowClear
         />
@@ -413,7 +381,7 @@ export default function Products() {
           placeholder="Giám giá cao nhất"
           name="discountEnd"
           value={filter.discountEnd}
-          onChange={onChangFilter}
+          onChange={onChangeFilter}
               
           allowClear
         />
